@@ -2,36 +2,41 @@ var tanya = true
 while (tanya) {
 
 var player = prompt('Silahkan Pilih : Kertas, Batu, Gunting');
+
+if (player !== null) {
+    player = player.toLowerCase();
+}
+    
 var comp = Math.random();
 
 if (comp<0.34) {
-    comp = 'Kertas';
+    comp = 'kertas';
 } else if (comp>=0.34 && comp < 0.67) {
-    comp = 'Batu';
+    comp = 'batu';
 } else {
-    comp = 'Gunting';
+    comp = 'gunting';
 }
 
 var hasil = '';
-
+player = player.toLowerCase().trim();
 if (player == comp) {
     hasil ='SERI'
-} else if  (player=='Kertas') {
+} else if  (player=='kertas') {
     // if (comp=='Batu') {
     //     hasil = 'MENANG'
     // } else {
     //     hasil = 'KALAH'
     // }
-    hasil = (comp=='Batu')  ? 'MENANG' : 'KALAH';
-} else if (player=='Batu') {
+    hasil = (comp=='batu')  ? 'MENANG' : 'KALAH';
+} else if (player=='batu') {
     // if (comp=='Kertas') {
     //     hasil = 'Kalah'
     // } else {
     //     hasil='MENANG' 
     // }
-    hasil = (comp=='Kertas') ? 'KALAH' : 'MENANG';
-} else if (player=='Gunting') {
-    hasil = (comp=='Kertas') ? 'MENANG' : 'KALAH';
+    hasil = (comp=='kertas') ? 'KALAH' : 'MENANG';
+} else if (player=='gunting') {
+    hasil = (comp=='kertas') ? 'MENANG' : 'KALAH';
 } else {
     hasil='MEMASUKKAN PILIHAN YANG SALAH' 
 }
