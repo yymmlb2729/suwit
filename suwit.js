@@ -1,49 +1,45 @@
-var tanya = true
-while (tanya) {
+function main(player) {
 
-var player = prompt('Silahkan Pilih : Kertas, Batu, Gunting');
+  var comp = Math.random();
 
-if (player !== null) {
-    player = player.toLowerCase();
-}
-    
-var comp = Math.random();
+  if (comp < 0.34) {
+    comp = 'Kertas';
+  } else if (comp < 0.67) {
+    comp = 'Batu';
+  } else {
+    comp = 'Gunting';
+  }
 
-if (comp<0.34) {
-    comp = 'kertas';
-} else if (comp>=0.34 && comp < 0.67) {
-    comp = 'batu';
-} else {
-    comp = 'gunting';
-}
+  var hasil = '';
 
-var hasil = '';
-player = player.toLowerCase().trim();
-if (player == comp) {
-    hasil ='SERI'
-} else if  (player=='kertas') {
-    // if (comp=='Batu') {
-    //     hasil = 'MENANG'
-    // } else {
-    //     hasil = 'KALAH'
-    // }
-    hasil = (comp=='batu')  ? 'MENANG' : 'KALAH';
-} else if (player=='batu') {
-    // if (comp=='Kertas') {
-    //     hasil = 'Kalah'
-    // } else {
-    //     hasil='MENANG' 
-    // }
-    hasil = (comp=='kertas') ? 'KALAH' : 'MENANG';
-} else if (player=='gunting') {
-    hasil = (comp=='kertas') ? 'MENANG' : 'KALAH';
-} else {
-    hasil='MEMASUKKAN PILIHAN YANG SALAH' 
+  if (player == comp) {
+    hasil = 'SERI';
+  } else if (player == 'Kertas') {
+    hasil = (comp == 'Batu') ? 'KAMU MENANG' : 'KAMU KALAH';
+  } else if (player == 'Batu') {
+    hasil = (comp == 'Kertas') ? 'KAMU KALAH' : 'KAMU MENANG';
+  } else if (player == 'Gunting') {
+    hasil = (comp == 'Kertas') ? 'KAMU MENANG' : 'KAMU KALAH';
+  }
+
+  document.getElementById("textPlayer").innerText = "Kamu : " + player;
+  document.getElementById("textComp").innerText = "Komputer : " + comp;
+  document.getElementById("textHasil").innerText = hasil;
+
+  document.getElementById("pilihBox").classList.add("hidden");
+  document.getElementById("hasilBox").classList.remove("hidden");
 }
 
-alert('Kamu memilih ' + player + ' dan komputer memilih ' + comp + '\nMaka hasilnya = KAMU ' + hasil);
-
-tanya = confirm('Ingin mengulang lagi?');
+function lanjut() {
+  document.getElementById("hasilBox").classList.add("hidden");
+  document.getElementById("ulangBox").classList.remove("hidden");
 }
 
-alert('Terimakasih sudah bermain :D')
+function ulang() {
+  document.getElementById("ulangBox").classList.add("hidden");
+  document.getElementById("pilihBox").classList.remove("hidden");
+}
+
+function selesai() {
+  document.getElementById("ulangBox").innerHTML = "<h2>TERIMAKASIH SUDAH BERMAIN</h2>";
+}
