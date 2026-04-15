@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suwit</title>
 </head>
+<link rel="stylesheet" href="suwit.css">
 <body>
-    <script src="suwit.js"></script>
+
+<!-- PILIHAN -->
+<div id="pilihBox" class="alert-box">
+  <h2>Pilih</h2>
+  <button onclick="main('Kertas')">Kertas</button>
+  <button onclick="main('Batu')">Batu</button>
+  <button onclick="main('Gunting')">Gunting</button>
+</div>
+
+<!-- HASIL -->
+<div id="hasilBox" class="alert-box hidden">
+  <h2>GAME SUWIT</h2>
+  <p id="textPlayer"></p>
+  <p id="textComp"></p>
+  <div class="result" id="textHasil"></div>
+  <button onclick="lanjut()">Lanjut</button>
+</div>
+
+<!-- ULANG -->
+<div id="ulangBox" class="alert-box hidden">
+  <h2>Main lagi?</h2>
+  <button onclick="ulang()">Ya</button>
+  <button onclick="selesai()">Tidak</button>
+</div>
+
+<script src="suwit.js"></script>
 </body>
 </html>
